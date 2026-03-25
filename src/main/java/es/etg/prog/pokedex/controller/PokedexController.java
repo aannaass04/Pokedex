@@ -4,7 +4,7 @@ import es.etg.prog.pokedex.view.PokedexView;
 
 public class PokedexController {
     private PokedexView vista;
-    final int OPCION_SALIDA = 3;
+    final int OPCION_SALIDA = PokedexView.OPC_MENU_SALIR;
 
     public PokedexController (PokedexView vista){
         this.vista = vista;

@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 public class PokedexView {
     private Scanner sc = new Scanner(System.in);
+    final static public String TEXTO_OPCIONES = "Menú Principal Pokedex %n\t%s - %s%n";
+    final static public String STR_MENU_SALIR = "Salir";
+    final static public int OPC_MENU_SALIR = 3;
 
     public void mostrarMenu(){
-        System.out.println("Menu Principal Pokedex");
-        System.out.println("");
-        System.out.println("1. Ver Pokemons");
-        System.out.println("2. Ver carnet de entrenador");
-        System.out.println("3. Salir");
+        String menu = String.format(TEXTO_OPCIONES, OPC_MENU_SALIR, STR_MENU_SALIR);
+        System.out.println(menu);
     }
 
     public String leerString(){
@@ -20,8 +20,6 @@ public class PokedexView {
     }
 
     public int leerEntero(){
-        int res;
-        res = sc.nextInt();
-        return res;
+        return Integer.parseInt(leerString());
     }
 }
