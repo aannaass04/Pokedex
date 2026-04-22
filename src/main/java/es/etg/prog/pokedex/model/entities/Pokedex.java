@@ -12,4 +12,5 @@ public class Pokedex {
  
     private IPokemonRepository repository;
     private List<Pokemon> pokemons = new ArrayList<>();
+    private String entrenador;
 }
