@@ -3,7 +3,7 @@ package es.etg.prog.pokedex.view;
 import java.util.Scanner;
 
 public class PokedexView {
-    private Scanner sc = new Scanner(System.in);
+    
     public final static String MENU_TITULO = "Menú Principal Pokedex %n\t%s";
     public final static String MENU_INTR_NOMBRE = "Introducir el nombre del entrenador";
     public final static String MENU_CARGAR = "Cargar datos desde fichero";
@@ -14,6 +14,8 @@ public class PokedexView {
     public final static int OPC_CARGAR = 2;
     public final static int OPC_GUARDAR = 3;
     public final static int OPC_SALIR = 4;
+
+    private Scanner sc = new Scanner(System.in);
 
     public void mostrarMenu() {
         String opciones = String.format(
@@ -38,6 +40,10 @@ public class PokedexView {
 
     public int leerEntero(String msg) {
         return Integer.parseInt(leerString(msg));
+    }
+
+    public void imprimir(String msg){
+        System.out.println(msg);
     }
 
 }

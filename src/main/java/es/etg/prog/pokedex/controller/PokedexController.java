@@ -7,13 +7,15 @@ import es.etg.prog.pokedex.util.FicheroManager;
 import es.etg.prog.pokedex.view.PokedexView;
 
 public class PokedexController {
-    private PokedexView vista;
+    
     private static final int OPCION_SALIDA = PokedexView.OPC_SALIR;
     private static final String FICHERO_ENTRENADOR = "entrenador.txt";
     private static final String OPC_NO_VALIDA = "La opción no es válida!";
     private static final String OPC_TEXTO_SALIR = "Saliendo del programa...";
 
-    Pokedex pokedex = new Pokedex(null, null, null);
+    private PokedexView vista;
+
+    private Pokedex pokedex = new Pokedex(null, null, null);
 
     public PokedexController (PokedexView vista){
         this.vista = vista;
@@ -26,20 +28,20 @@ public class PokedexController {
             entrada = vista.leerEntero("Introduce la opcion:");
             switch (entrada) {
                 case PokedexView.OPC_INTR_NOMBRE -> {
-                String nombre = vista.leerString("Introduce el nombre del entrenador");
-                pokedex.setEntrenador(nombre);
+                    String nombre = vista.leerString("Introduce el nombre del entrenador");
+                    pokedex.setEntrenador(nombre);
                 }
 
                 case PokedexView.OPC_CARGAR -> FicheroManager.read(FICHERO_ENTRENADOR); //Aqui en el read se puede poner como un sysout para imprimir el nombre?
 
                 case PokedexView.OPC_GUARDAR ->{ 
-                byte[] bytes = FicheroManager.convertirString(pokedex.getEntrenador());
-                FicheroManager.write(FICHERO_ENTRENADOR, bytes);
+                    byte[] bytes = FicheroManager.convertirString(pokedex.getEntrenador());
+                    FicheroManager.write(FICHERO_ENTRENADOR, bytes);
                 } 
 
-                case PokedexView.OPC_SALIR -> System.out.println(OPC_TEXTO_SALIR); //Preguntar a Julian si aqui se puede poner un sysout o es hardcode
+                case PokedexView.OPC_SALIR -> vista.imprimir(OPC_TEXTO_SALIR); //Preguntar a Julian si aqui se puede poner un sysout o es hardcode
 
-                default -> System.out.println(OPC_NO_VALIDA);
+                default -> vista.imprimir(OPC_NO_VALIDA);
                 
             }
 
